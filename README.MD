@@ -1,9 +1,11 @@
-# DBLP search Alfred workflow#
+# DBLP search Alfred workflow #
 
 
-## Usage ## 
-Open up Alfred, type `dblp` and then the query terms separated by `SPACE`. 
+## Usage  
+Open up Alfred, type `dblp` and then the query terms separated by `SPACE`.
+ 
 Hit `↩` to go to `.bibtex` DBLP web page.
+
 Don't be afraid, use keywords, author names, year, journal title.
 
 Keep filtering your results by adding new terms.

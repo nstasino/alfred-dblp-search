@@ -18,6 +18,8 @@ Keep filtering your results by adding new terms.
     + Go to Google Scholar, then check for references
 - (long term) Cross checking bibliography servers 
 - Workflow update using Alfred-workflow
+
+
 ## License, thanks ##
 
 This is released under the [MIT Licence][mit].

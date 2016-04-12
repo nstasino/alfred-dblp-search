@@ -16,30 +16,7 @@ CACHE_MAX_AGE = 1
 FILTER_MIN_SCORE = 10
 
 
-def getpubs():
-    import urllib2
-    # import requests
-    from pyquery import PyQuery as pq
-
-    term = "afrati"
-    results_html = pq(urllib2.urlopen(base_url+term).read())
-    entries = results_html(".entry")
-    papers = []
-    for i in range(len(entries)):
-        paper = {}
-        paperid = entries.eq(i).attr("id")
-        title = entries.eq(i).find(".title").text()
-        subtitle = []
-        authors = results_html('.entry').eq(i).find("span[itemprop=author]")
-        for a in range(len(authors)):
-            subtitle.append(authors.eq(a).text())
-        subtitle = ", ".join(subtitle) + year_published
-        paper[paperid] = (title, subtitle)
-        papers.append(paper)
-    return papers
-
-
-def getpubs2(query, authors=None):
+def getpubs(query, authors=None):
     import urllib2
     # import requests
     from pyquery import PyQuery as pq
@@ -129,7 +106,7 @@ def main(wf):
     # seconds old
     # papers = wf.cached_data('papers', getpubs, max_age=60)
     papers = wf.cached_data('papers',
-                            functools.partial(getpubs2, query, None),
+                            functools.partial(getpubs, query, None),
                             max_age=CACHE_MAX_AGE)
     # If script was passed a query, use it to filter posts
     # if filters:
